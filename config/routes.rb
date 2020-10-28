@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   resources :reservations, only: [:destroy]
 
   # FALTA ADICIONAR ROTA DO PROFILE
+  get 'my_places', to: 'pages#test'
+  # places#myplaces
+  get 'my_reservations', to: 'pages#test'
+  # reservations#myreservations
 end

@@ -1,8 +1,6 @@
 class PagesController < ApplicationController
-  def home
-  end
+  skip_before_action :authenticate_user!, only: :home
 
-  def test
-    @places = Place.where(user: current_user)
+  def home
   end
 end

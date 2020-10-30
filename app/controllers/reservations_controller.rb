@@ -18,6 +18,11 @@ class ReservationsController < ApplicationController
     @user = current_user
   end
 
+  def destroy
+    @reservation = Reservation.find(params[:id]).destroy
+    redirect_to my_reservations_path
+  end
+
   private
 
   def calculate_price

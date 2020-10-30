@@ -1,0 +1,10 @@
+<h1>All Places</h1>
+
+<ul>
+    <% @places.each do |place| %>
+        <li><%= place.name %></li>
+        <li><%= place.location_type %></li>
+        <li><%= place.location %></li>
+        <li><%= place.price_per_day %></li>
+    <% end %>
+</ul>

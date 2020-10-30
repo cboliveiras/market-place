@@ -1,8 +1,5 @@
 class PagesController < ApplicationController
   def home
-  end
-
-  def test
-    @places = Place.where(user: current_user)
+    @places = Place.all
   end
 end

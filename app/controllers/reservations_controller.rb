@@ -7,10 +7,10 @@ class ReservationsController < ApplicationController
     calculate_price
 
     if @reservation.save
-      redirect_to root_path
+      redirect_to place_path(@place), notice: 'Created reservation successfully!'
       # Substitute by my_reservations_path after creating it.
     else
-      redirect_to new_user_session_path, notice: 'You are not logged in.'
+      redirect_to place_path(@place), notice: 'You are not logged in.'
     end
   end
 

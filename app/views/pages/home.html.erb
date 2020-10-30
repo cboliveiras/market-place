@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Places</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead><tbody>
+    <% @places.each do |place| %>
+      <tr>
+        <td><%= link_to place.name, place %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+<br>
+<%= link_to 'Add a New Place', new_place_path %>

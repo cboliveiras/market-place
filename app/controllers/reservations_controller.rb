@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
       redirect_to place_path(@place), notice: 'Created reservation successfully!'
       # Substitute by my_reservations_path after creating it.
     else
-      redirect_to place_path(@place), notice: 'You are not logged in.'
+      redirect_to place_path(@place), notice: 'Failed to create reservation.'
     end
   end
 

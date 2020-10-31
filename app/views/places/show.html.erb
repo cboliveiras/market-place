@@ -11,7 +11,7 @@
   <%= simple_form_for [@place, @reservation] do |f| %>
   <%= f.input :initial_date, as: :date%>
   <%= f.input :final_date, as: :date%>
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-dark btn-sm m-2' %>
   <% end %>
 <% else %>
   <h1>Sign in to book this place</h1>

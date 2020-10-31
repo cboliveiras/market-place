@@ -24,6 +24,21 @@ class PlacesController < ApplicationController
     end
   end
 
+  def edit
+    @place = Place.find(params[:id])
+    unless current_user == @place.user
+      flash[:notice] = "Access denied"
+      redirect_to :root
+    end 
+  end
+
+  def update
+    @place = Place.find(params[:id])
+
+    @place.update(place_params)
+    redirect_to :root
+  end
+
   private
 
   def place_params

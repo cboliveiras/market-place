@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>My Places</h1>
+
+  <div class="row justify-content-center">
+    <%= link_to "Add new place", new_place_path, class: "btn btn-primary btn-sm m-2" %>
+  </div>
+
+  <% @places.each do |place| %>
+    <div>
+      <%= place.id %>
+      <%= place.name %>
+      <%= place.location %>
+      <%= place.location_type %>
+      <%= place.price_per_day %>
+      <%= link_to "Edit", edit_place_path(place), class: "btn btn-primary btn-sm m-2" %>
+      <%= link_to "Delete", place_path(place), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm m-2" %>
+    </div>
+  <% end %>
+
+</div>

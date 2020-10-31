@@ -1,7 +1,10 @@
-<%= form_for @place do |f| %>
-    <%= f.text_field :name %>
-    <%= f.text_field :location %>
-    <%= f.text_field :location_type %>
-    <%= f.text_field :price_per_day %>
-    <%= f.submit %>
-<% end %> 
+<div class="container">
+    <%= form_for @place do |f| %>
+        <%= f.text_field :name %>
+        <%= f.text_field :location %>
+        <%= f.text_field :location_type %>
+        <%= f.text_field :price_per_day %>
+        <%= f.submit class: "btn btn-dark btn-sm m-2"%>
+        <%= link_to 'Back', :my_places, class: "btn btn-dark btn-sm m-2"%>
+    <% end %>
+</div>

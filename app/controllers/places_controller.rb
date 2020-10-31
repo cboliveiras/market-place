@@ -18,7 +18,7 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.user = current_user
     if @place.save
-      redirect_to place_path(@place), notice: "Place created!"
+      redirect_to my_places_path, notice: "Place created!"
     else
       render :new
     end
@@ -34,9 +34,14 @@ class PlacesController < ApplicationController
 
   def update
     @place = Place.find(params[:id])
-
     @place.update(place_params)
-    redirect_to :root
+    redirect_to my_places_path
+  end
+
+  def destroy
+    @place = Place.find(params[:id])
+    @place.destroy
+    redirect_to my_places_path
   end
 
   def my_places

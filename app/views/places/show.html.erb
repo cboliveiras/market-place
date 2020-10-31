@@ -1,17 +1,18 @@
 <div>
-  <%= @place.name %>
+<br>
+ <strong><%= @place.name %></strong>
   <br>
   <%= @place.location %>
   <br>
-  R$ <%= @place.price_per_day %>
+  R$ <%= @place.price_per_day %>/night
   <br>
 </div>
-
+<br>
 <% if user_signed_in? %>
   <%= simple_form_for [@place, @reservation] do |f| %>
   <%= f.input :initial_date, as: :date%>
   <%= f.input :final_date, as: :date%>
-  <%= f.submit %>
+  <%= f.submit 'Make a reservation', class: 'btn btn-dark btn-sm m-2' %>
   <% end %>
 <% else %>
   <h1>Sign in to book this place</h1>

@@ -28,10 +28,10 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @place.destroy
     redirect_to :root
+  end
 
   def my_places
     @places = Place.where(user: current_user)
-
   end
 
   private

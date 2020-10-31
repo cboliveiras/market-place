@@ -24,6 +24,10 @@ class PlacesController < ApplicationController
     end
   end
 
+  def my_places
+    @places = Place.where(user: current_user)
+  end
+
   private
 
   def place_params

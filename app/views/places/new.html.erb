@@ -1,0 +1,9 @@
+<div class="container">
+<br><h1>New Place</h1><br>
+  <%= simple_form_for [@user, @place] do |f| %>
+    <%= f.input :location, label: 'Place Location' %>
+    <%= f.input :price_per_day, label: 'Price per Day' %>
+    <%= f.input :location_type, label: 'Location Type' %>
+    <%= f.submit 'Add', class: 'btn btn-danger' %>
+  <% end %>
+</div>

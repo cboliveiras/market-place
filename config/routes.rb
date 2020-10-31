@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   end
   resources :reservations, only: [:destroy]
 
-  get 'my_places', to: 'places#myplaces'
+  get 'my_places', to: 'places#my_places'
   get 'my_reservations', to: 'reservations#my_reservations'
 end

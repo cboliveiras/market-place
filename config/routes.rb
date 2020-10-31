@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   end
   resources :reservations, only: [:destroy]
 
-  # FALTA ADICIONAR ROTA DO PROFILE
-  get 'my_places', to: 'pages#test'
-  # places#myplaces
-  get 'my_reservations', to: 'pages#test'
-  # reservations#myreservations
+  get 'my_places', to: 'places#myplaces'
+  get 'my_reservations', to: 'reservations#my_reservations'
 end

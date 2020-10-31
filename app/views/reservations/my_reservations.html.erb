@@ -1,0 +1,11 @@
+<% @user.reservations.each do |reservation| %>
+  <div>
+    <%= reservation.place.name %>
+    <%= reservation.initial_date %>
+    <%= reservation.final_date %>
+    <%= reservation.price %>
+    <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+
+<%= link_to "Home", root_path %>

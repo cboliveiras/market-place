@@ -1,5 +1,19 @@
+<div>
+  <%= @place.name %>
+  <br>
+  <%= @place.location %>
+  <br>
+  R$ <%= @place.price_per_day %>
+  <br>
+</div>
 
-<%= @place.name %>
-<%= @place.location %>
-<%= @place.price_per_day %>
-
+<% if user_signed_in? %>
+  <%= simple_form_for [@place, @reservation] do |f| %>
+  <%= f.input :initial_date, as: :date%>
+  <%= f.input :final_date, as: :date%>
+  <%= f.submit %>
+  <% end %>
+<% else %>
+  <h1>Sign in to book this place</h1>
+  <%= link_to "Sign In", new_user_session_path %>
+<% end %>

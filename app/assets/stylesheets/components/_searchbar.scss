@@ -5,15 +5,34 @@
   justify-content: space-between !important;
   border-radius: 40px !important;
   padding: 5px 15px;
+  // display: flex;
 }
 
 .search-text {
-  border: none;
-  background-color: none;
+  border-style: none;
+  background-color: transparent;
   float: left !important;
-  display: block !important;
+  // flex-grow: 1 !important;
+  // display: block !important;
   vertical-align: center !important;
 }
+
+input.search-text {
+  // text-decoration: none;
+  // background-color: white;
+}
+
+input.search-text a:focus {
+  // text-decoration: none;
+  // background-color: white;
+}
+
+.search-text:focus {
+  outline: 0px;
+  // list-style : none;
+  // text-decoration : none;
+}
+
 
 .search-icon {
   float: right !important;

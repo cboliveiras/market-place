@@ -1,10 +1,18 @@
 // Specific CSS for your home-page
 
+.navbar {
+  background-image: url('AmazonBackground.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center, center top;
+  height: 40px;
+}
+
 .banner {
   background-image: url('AmazonBackground.jpg');
   background-size: cover;
-  opacity: 90%;
-  background-position: center;
+  background-attachment: fixed;
+  background-position: center, center top;
   padding: 230px 10px;
 }
 

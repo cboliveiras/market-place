@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new]
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
     @places = Place.all

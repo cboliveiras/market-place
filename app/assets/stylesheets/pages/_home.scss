@@ -1,29 +1,5 @@
 // Specific CSS for your home-page
-
-.navbar {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.25),
-      rgba(255,255,255,0.25)),
-    url('AmazonBackground.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center, center top;
-  height: 40px;
-  padding: 30px 10px;
-}
-
-.nav-font {
-  color: white !important;
-  text-shadow: 1px 1px 2px #444444;
-}
-
-.banner {
-  background-image: url('AmazonBackground.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center, center top;
-  padding: 250px 10px;
-}
+@import "navbar";
 
 .main-box {
   width: 50%;

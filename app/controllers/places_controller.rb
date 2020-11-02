@@ -1,10 +1,6 @@
 class PlacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new]
 
-  def home
-    @places = Place.all
-  end
-
   def index
     @places = Place.all
   end

@@ -1,0 +1,12 @@
+<div class="row justify-content-center">
+  <h1>Add new review</h1>
+</div>
+
+<div class="m-5">
+  <%= simple_form_for [@place, @review] do |f| %>
+    <%= f.input :user_rating, collection: 0..5 %>
+    <%= f.input :place_rating, collection: 0..5 %>
+    <%= f.input :comments %>
+    <%= f.button :submit, "Submit review", class: "btn btn-primary btn-sm m-2" %>
+  <% end %>
+</div>

@@ -1,13 +1,9 @@
 class PlacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new]
+  before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
     @places = Place.all
-  end
-
-  def show
-    @place = Place.find(params[:id])
-    @reservation = Reservation.new
   end
 
   def new
@@ -24,6 +20,10 @@ class PlacesController < ApplicationController
     end
   end
 
+  def show
+    @reservation = Reservation.new
+  end
+
   def edit
     @place = Place.find(params[:id])
     return unless current_user == @place.user
@@ -33,13 +33,11 @@ class PlacesController < ApplicationController
   end
 
   def update
-    @place = Place.find(params[:id])
     @place.update(place_params)
     redirect_to my_places_path
   end
 
   def destroy
-    @place = Place.find(params[:id])
     @place.destroy
     redirect_to my_places_path
   end
@@ -52,5 +50,9 @@ class PlacesController < ApplicationController
 
   def place_params
     params.require(:place).permit(:name, :location, :location_type, :price_per_day)
+  end
+
+  def set_place
+    @place = Place.find(params[:id])
   end
 end

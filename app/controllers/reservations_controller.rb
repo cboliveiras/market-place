@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
@@ -7,7 +8,7 @@ class ReservationsController < ApplicationController
     calculate_price
 
     if @reservation.save
-      redirect_to my_reservations_path, notice: 'Created reservation successfully!'
+      redirect_to my_reservations_path, notice: 'Reservation created successfully!'
     else
       redirect_to place_path(@place), notice: 'Failed to create reservation.'
     end

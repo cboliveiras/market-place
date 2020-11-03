@@ -6,8 +6,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @place = Place.find(params[:place_id])
     @review = Review.new(review_params)
+    @review.user_id = current_user.id
+    @place = Place.find(params[:place_id])
     @review.place = @place
     if review.save
       redirect_to my_reservations_path

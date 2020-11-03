@@ -1,9 +1,9 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Roboto:wght@100;300;400;500;700;900|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:wght@100;200;300;400;500;600;700;800;900|Roboto:wght@100;300;400;500;700;900|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
 $body-font: "Roboto", "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Roboto", "Helvetica", "sans-serif";
+$headers-font: "Montserrat", "Roboto", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

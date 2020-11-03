@@ -11,7 +11,12 @@
       <%= reservation.initial_date %>
       <%= reservation.final_date %>
       <%= reservation.price %>
-      <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
+      <% if reservation.final_date.past? %>
+        <%= link_to "Review", new_place_review_path(reservation.place), class: "btn btn-dark btn-sm m-2" %>
+      <% else %>
+        <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
+      <% end %>
     </div>
   <% end %>
+
 </div>

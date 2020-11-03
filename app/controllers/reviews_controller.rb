@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def new
     @place = Place.find(params[:place_id])
     @review = Review.new
@@ -10,7 +9,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @place = Place.find(params[:place_id])
     @review.place = @place
-    if review.save
+    if @review.save
       redirect_to my_reservations_path
     else
       render :new
@@ -32,5 +31,4 @@ class ReviewsController < ApplicationController
     sum
     avg = sum / count
   end
-
 end

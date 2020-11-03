@@ -8,7 +8,6 @@ class ReservationsController < ApplicationController
 
     if @reservation.save
       redirect_to my_reservations_path, notice: 'Created reservation successfully!'
-      # Substitute by my_reservations_path after creating it.
     else
       redirect_to place_path(@place), notice: 'Failed to create reservation.'
     end

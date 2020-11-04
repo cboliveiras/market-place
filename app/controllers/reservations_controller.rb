@@ -6,11 +6,19 @@ class ReservationsController < ApplicationController
     @place = Place.find(params[:place_id])
     @reservation.place = @place
     calculate_price
-
-    if @reservation.save
-      redirect_to my_reservations_path, notice: 'Reservation created successfully!'
+    if @reservation.initial_date.past? || @reservation.final_date.past?
+      redirect_to place_path(@place), notice: 'Please choose a valid date.'
+    # elsif @reservation.
+      # @place.reservations include
+      # WHERE   where("start_date < ? AND end_date > ?", start_date, end_date)
+      # CHECAR SE A DATA JA FOI BOOKADA -
+      # redirect_to place_path(@place), notice: 'Place already booked for those dates.'
     else
-      redirect_to place_path(@place), notice: 'Failed to create reservation.'
+      if @reservation.save
+        redirect_to my_reservations_path, notice: 'Reservation created successfully!'
+      else
+        redirect_to place_path(@place), notice: 'Failed to create reservation.'
+      end
     end
   end
 

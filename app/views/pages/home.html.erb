@@ -22,14 +22,17 @@
 <div class="cards">
   <% @places.each do |place| %>
   <% image = place.images.attached? ? place.images.key : "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg" %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path image, height: 300, width: 400, crop: :fill %>')">
-    <div class="card-content">
-      <h5 class="card-title"><%= link_to place.name, place %></h5>
+  
+
+  <div class="card" style="width: 18rem;">
+    <%# <img class="card-img-top" image_tag("icon") alt="Card image cap"> %>
+    <%#= url_for(place.images) %>
+    <%#= image_tag(url_for(user.avatar)) %>
+    <img src="<%= cl_image_path image,crop: :fill %>" alt="Italian Trulli" width="287" height="150">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to place.name, place %></h5> 
       <p class="card-text">R$<%= place.price_per_day %></p>
-      <p class="card-review">
-      <% place.average_rating.times do %>
-      <i class="far fa-star"></i>
-      <% end %></p>
+      <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
     </div>
   </div>
 <% end %>  

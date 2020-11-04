@@ -4,5 +4,5 @@ class Place < ApplicationRecord
   has_many :reservations
   has_many :reviews
 
-  has_many_attached :images
+  has_one_attached :image
 end

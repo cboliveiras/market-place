@@ -16,17 +16,16 @@
 </div>
 
   <div class="py-5">
-    <div class="row d-flex justify-content-center">
-      <% @places.each do |place| %>
-        <div class="col-auto mb-3">
-          <div class="card card-body" style="width: 20rem; height: 12rem;">
-            <img class="card-img-top" src="..." alt="Card image">
-            <div class="card-block">
-              <h4 class="card-title"><%= link_to place.name, place %></h4>
-              <p class="card-text p-y-1">R$<%= place.price_per_day %></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
+<div class="container d-flex flex-column align-items-center my-3">
+  <h1>Places</h1>
+
+<div class="cards">
+  <% @places.each do |place| %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <h5 class="card-title"><%= link_to place.name, place %></h5>
+    <p class="card-text">R$<%= place.price_per_day %></p>
+  </div>
+<% end %>  
+</div>
+
   </div>

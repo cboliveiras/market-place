@@ -53,3 +53,9 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+.card-content {
+
+  display: flex;
+  flex-direction: column;
+}

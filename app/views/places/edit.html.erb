@@ -1,10 +1,11 @@
 <div class="container">
-    <%= form_for @place do |f| %>
-        <%= f.text_field :name %>
-        <%= f.text_field :location %>
-        <%= f.text_field :location_type %>
-        <%= f.text_field :price_per_day %>
+    <%= simple_form_for @place do |f| %>
+        <%= f.input :name %>
+        <%= f.input :location %>
+        <%= f.input :location_type %>
+        <%= f.input :price_per_day %>
+        <%= f.input :image, as: :file %>
         <%= f.submit class: "btn btn-dark btn-sm m-2"%>
-        <%= link_to 'Back', :my_places, class: "btn btn-dark btn-sm m-2"%>
     <% end %>
+        <%= link_to 'My Places', :my_places, class: "btn btn-dark btn-sm m-2"%>
 </div>

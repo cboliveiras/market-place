@@ -1,13 +1,13 @@
 .navbar-home {
-  background-image:
-    linear-gradient(rgba(0,0,0,0),
-      rgba(0,0,0,0)),
-    url('CristoRedentor1.jpg');
+  background-color:rgba(79, 138, 210, 0.98);
   background-size: cover;
   background-attachment: fixed;
   background-position: center, center top;
   height: 40px;
   padding: 30px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .nav-font {

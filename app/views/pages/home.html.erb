@@ -31,6 +31,10 @@
         <div class="card-body">
           <h5 class="card-title"><%= link_to place.name, place %></h5>
           <p class="card-text">R$<%= place.price_per_day %></p>
+          <p class="card-review"><i class="far fa-star"*(place.place_avg_review)>
+          (<%=  place.reviews.count %> votes)</i>
+          <%=  %></p>
+
         </div>
       </div>
     <% end %>

@@ -6,11 +6,16 @@ class ReservationsController < ApplicationController
     @place = Place.find(params[:place_id])
     @reservation.place = @place
     calculate_price
-
-    if @reservation.save
-      redirect_to my_reservations_path, notice: 'Reservation created successfully!'
+    if @reservation.initial_date.past? || @reservation.final_date.past? || @reservation.final_date < @reservation.initial_date
+      redirect_to place_path(@place), notice: 'Please choose a valid date.'
+    elsif booked?(@place)
+      redirect_to place_path(@place), notice: 'Place already booked for those dates.'
     else
-      redirect_to place_path(@place), notice: 'Failed to create reservation.'
+      if @reservation.save
+        redirect_to my_reservations_path, notice: 'Reservation created successfully!'
+      else
+        redirect_to place_path(@place), notice: 'Failed to create reservation.'
+      end
     end
   end
 
@@ -35,4 +40,16 @@ class ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:initial_date, :final_date)
   end
+
+  def booked?(place)
+    result = []
+    new_reservation = @reservation.initial_date..@reservation.final_date
+    place.reservations.map do |reservation|
+      range_booked = reservation.initial_date..reservation.final_date
+      check_booked = new_reservation.begin <= range_booked.end && range_booked.begin <= new_reservation.end
+      result << check_booked
+    end
+    result.any?
+  end
+
 end

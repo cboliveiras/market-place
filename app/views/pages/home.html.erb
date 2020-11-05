@@ -4,7 +4,7 @@
       <h1>Book your next adventure!</h1>
     </div>
 
-    <div class="d-flex search-box justify-content-center">
+    <div class="d-flex search-box">
       <div class="">
         <input class="search-text" name="search_text" placeholder="Where are you going?" type="text">
       </div>
@@ -15,27 +15,24 @@
   </div>
 </div>
 
-  <div class="py-5">
 <div class="container d-flex flex-column">
-  <h1>Places</h1>
-
-<div class="cards">
-  <% @places.each do |place| %>
-  <% image = place.images.attached? ? place.images.key : "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg" %>
-  
-
-  <div class="card" style="width: 18rem;">
-    <%# <img class="card-img-top" image_tag("icon") alt="Card image cap"> %>
-    <%#= url_for(place.images) %>
-    <%#= image_tag(url_for(user.avatar)) %>
-    <img src="<%= cl_image_path image,crop: :fill %>" alt="Italian Trulli" width="287" height="150">
-    <div class="card-body">
-      <h5 class="card-title"><%= link_to place.name, place %></h5> 
-      <p class="card-text">R$<%= place.price_per_day %></p>
-      <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
-    </div>
+  <div class="d-flex m-5 justify-content-center">
+    <h1>Choose your new home!</h1>
   </div>
-<% end %>  
+
+  <div class="wrapper">
+    <% @places.each do |place| %>
+      <div class="card card-slot my-3 justify-between" style="width: 18rem;">
+        <% if place.image.attached? %>
+          <img class="card-img-top" src="<%= cl_image_path place.image.key %>" width="100%" height="180" alt="Default Image">
+        <% else %>
+          <img class="card-img-top" src="https://res.cloudinary.com/safely/image/upload/v1604452342/tvt5xuita7wrx9ypidsa.png" width="100%" height="180" alt="Default Image">
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to place.name, place %></h5>
+          <p class="card-text">R$<%= place.price_per_day %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-  </div>

@@ -10,9 +10,6 @@ class ReservationsController < ApplicationController
       redirect_to place_path(@place), notice: 'Please choose a valid date.'
     elsif booked?(@place)
       redirect_to place_path(@place), notice: 'Place already booked for those dates.'
-    # CHECAR SE A DATA JA FOI BOOKADA
-    # elsif @place.reservations.cover?("begin_date < initial_date AND final_date > ?", begin_date, end_date)
-    #   redirect_to place_path(@place), notice: 'Place already booked for those dates.'
     else
       if @reservation.save
         redirect_to my_reservations_path, notice: 'Reservation created successfully!'
@@ -49,8 +46,8 @@ class ReservationsController < ApplicationController
     new_reservation = @reservation.initial_date..@reservation.final_date
     place.reservations.map do |reservation|
       range_booked = reservation.initial_date..reservation.final_date
-      boolean = new_reservation.begin <= range_booked.end && range_booked.begin <= new_reservation.end
-      result << boolean
+      check_booked = new_reservation.begin <= range_booked.end && range_booked.begin <= new_reservation.end
+      result << check_booked
     end
     result.any?
   end

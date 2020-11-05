@@ -3,7 +3,12 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
-    @places = Place.all
+    if params[:search_query].present?
+      sql_query = "name ILIKE :search_query OR location ILIKE :search_query"
+      @places = Place.where(sql_query, search_query: "%#{params[:search_query]}%")
+    else
+      @places = Place.all
+    end
   end
 
   def new

@@ -15,6 +15,15 @@
   </div>
 </div>
 
+<%= form_tag places_path, method: :get do %>
+  <%= text_field_tag :search_query,
+    params[:search_query],
+    class: "form-control",
+    placeholder: "Find your next destination"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
   <div class="py-5">
     <div class="row d-flex justify-content-center">
       <% @places.each do |place| %>

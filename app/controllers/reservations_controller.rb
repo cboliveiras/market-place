@@ -45,10 +45,14 @@ class ReservationsController < ApplicationController
   end
 
   def booked?(place)
+    result = []
     new_reservation = @reservation.initial_date..@reservation.final_date
-    place.reservations.each do |reservation|
+    place.reservations.map do |reservation|
       range_booked = reservation.initial_date..reservation.final_date
-      range_booked.cover?(new_reservation.begin) && range_booked.cover?(new_reservation.end)
+      boolean = new_reservation.begin <= range_booked.end && range_booked.begin <= new_reservation.end
+      result << boolean
     end
+    result.any?
   end
+
 end

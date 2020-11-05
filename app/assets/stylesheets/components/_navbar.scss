@@ -1,8 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
   background-color: black;
-  height: 40px;
-  padding: 30px 10px;
+  height: 75px;
+  padding: 30px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .nav-font {

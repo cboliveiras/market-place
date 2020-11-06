@@ -21,7 +21,6 @@ class ReservationsController < ApplicationController
 
   def my_reservations
     @reservations = Reservation.where(user: current_user)
-
   end
 
   def destroy

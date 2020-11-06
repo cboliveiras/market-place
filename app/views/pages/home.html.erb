@@ -30,7 +30,7 @@
 
   <div class="wrapper">
     <% @places.each do |place| %>
-      <div class="card card-slot my-3 justify-between" style="width: 18rem;">
+      <div class="card card-container my-3 justify-between" style="width: 18rem;">
         <% if place.image.attached? %>
           <img class="card-img-top" src="<%= cl_image_path place.image.key %>" width="100%" height="180" alt="Default Image">
         <% else %>

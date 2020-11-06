@@ -8,25 +8,23 @@
   </div>
 
   <div class="wrapper">
-    <% @user.reservations.each do |reservation| %>
-      <div class="row my-2">
-        <div class="col-sm">
-          <div class="card flex-row flex-wrap p-3" style="width: 40rem;">
-            <div>
-              <img class="card-img-top" src="https://placeimg.com/640/480/arch" width="100%" height="180" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><%= reservation.place.name %></h5>
-              <p class="card-text"><%= reservation.initial_date %></p>
-              <p class="card-text"><%= reservation.final_date %></p>
-              <p class="card-text">R$<%= reservation.price %></p>
-              <% if reservation.final_date.past? %>
-                <%= link_to "Review", new_place_review_path(reservation.place), class: "btn btn-dark btn-sm m-2" %>
-              <% else %>
-                <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
-              <% end %>
-            </div>
-          </div>
+    <% @reservations.each do |reservation| %>
+     <div class="card card-slot my-3 justify-between" style="width: 18rem;">
+        <% if reservation.place.image.attached? %>
+          <img class="card-img-top" src="<%= cl_image_path place.image.key %>" width="100%" height="180" alt="Default Image">
+        <% else %>
+          <img class="card-img-top" src="https://res.cloudinary.com/safely/image/upload/v1604452342/tvt5xuita7wrx9ypidsa.png" width="100%" height="180" alt="Default Image">
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= reservation.place.name %></h5>
+          <p class="card-text"><%= reservation.initial_date %></p>
+          <p class="card-text"><%= reservation.final_date %></p>
+          <p class="card-text">R$<%= reservation.price %></p>
+          <% if reservation.final_date.past? %>
+            <%= link_to "Review", new_place_review_path(reservation.place), class: "btn btn-dark btn-sm m-2" %>
+          <% else %>
+            <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
+          <% end %>
         </div>
       </div>
     <% end %>

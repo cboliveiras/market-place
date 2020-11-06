@@ -51,7 +51,6 @@ class PlacesController < ApplicationController
   private
 
   def review_avg(place)
-    #place.reviews.count != 0 ? @average_rating = place.reviews.average(:place_rating).round(0) : @average_rating = 0
     n = place.reviews.count
     sum = 0
     avg = 0

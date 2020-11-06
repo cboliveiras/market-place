@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card mt-0 mb-5" style="width: auto;">
+  <div class="single-card mt-0 mb-5" style="width: auto;">
     <div class="row no-gutters">
       <div class="col-auto">
         <% if @place.image.attached? %>
@@ -10,7 +10,7 @@
       </div>
       <div class="col">
         <div class="card-body d-flex flex-column justify-content-between">
-          <h4 class="card-title"><strong><%= @place.name %></strong></h4>
+          <h4 class="card-title page-title"><strong><%= @place.name %></strong></h4>
           <p class="card-text">Description</p>
           <p class="card-text"><h6 class="text-muted">R$<strong><%= @place.price_per_day %></strong>/night</h6></p>
           <h2 class="card-text"><%= @place.place_avg_review %></h2>
@@ -31,7 +31,7 @@
   <% end %>
 
 
-  <div class="container my-5 d-flex justify-content-around">
+  <div class="container wrapper my-5 d-flex justify-content-around">
     <div class="row">
       <% @place.reviews.each do |review| %>
       <div class="col-6">

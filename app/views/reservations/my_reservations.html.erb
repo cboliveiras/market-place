@@ -1,22 +1,25 @@
 <div class="container">
-  <h1>My Reservations</h1>
+  <div class="page-title">
+    <h1>My Reservations</h1>
+  </div>
 
   <div class="row justify-content-center">
     <%= link_to "Add a new booking", new_place_path, class: "btn btn-dark btn-sm m-2" %>
   </div>
 
-  <% @user.reservations.each do |reservation| %>
-    <div>
-      <%= reservation.place.name %>
-      <%= reservation.initial_date %>
-      <%= reservation.final_date %>
-      <%= reservation.price %>
-      <% if reservation.final_date.past? %>
-        <%= link_to "Review", new_place_review_path(reservation.place), class: "btn btn-dark btn-sm m-2" %>
-      <% else %>
-        <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
-      <% end %>
-    </div>
-  <% end %>
-
+  <div class="wrapper">
+    <% @user.reservations.each do |reservation| %>
+      <div>
+        <%= reservation.place.name %>
+        <%= reservation.initial_date %>
+        <%= reservation.final_date %>
+        <%= reservation.price %>
+        <% if reservation.final_date.past? %>
+          <%= link_to "Review", new_place_review_path(reservation.place), class: "btn btn-dark btn-sm m-2" %>
+        <% else %>
+          <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

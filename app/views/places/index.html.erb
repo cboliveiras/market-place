@@ -1,23 +1,24 @@
+<div class="container">
+  <div class="page-title d-flex flex-column align-items-center my-3">
+    <h1>Places</h1>
+  </div>
 
-<div class="container d-flex flex-column align-items-center my-3">
-  <h1>Places</h1>
-
-<div class="cards">
-  <% @places.each do |place| %>
-      <div class="row my-2">
-        <div class="col-sm">
-          <div class="card flex-row flex-wrap p-3" style="width: 40rem;">
-            <div>
-              <img class="card-img-top" src="https://placeimg.com/640/480/arch" width="100%" height="180" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><%= link_to place.name, place %></h5>
-              <p class="card-text">R$<%= place.price_per_day %></p>
-              <p class="card-text"><%= place.place_avg_review %></p>
+  <div class="wrapper">
+    <% @places.each do |place| %>
+        <div class="row my-2">
+          <div class="col-sm">
+            <div class="card flex-row flex-wrap p-3" style="width: 40rem;">
+              <div>
+                <img class="card-img-top" src="https://placeimg.com/640/480/arch" width="100%" height="180" alt="Card image cap">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><%= link_to place.name, place %></h5>
+                <p class="card-text">R$<%= place.price_per_day %></p>
+                <p class="card-text"><%= place.place_avg_review %></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-

@@ -3,7 +3,15 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
-    @places = Place.all
+    #@places = Place.all
+    @places = Place.geocoded
+
+    @markers = @places.geocoded.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude
+      }
+    end
   end
 
   def new

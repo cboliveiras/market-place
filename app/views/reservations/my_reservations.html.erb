@@ -9,16 +9,25 @@
 
   <div class="wrapper">
     <% @user.reservations.each do |reservation| %>
-      <div>
-        <%= reservation.place.name %>
-        <%= reservation.initial_date %>
-        <%= reservation.final_date %>
-        <%= reservation.price %>
-        <% if reservation.final_date.past? %>
-          <%= link_to "Review", new_place_review_path(reservation.place), class: "btn btn-dark btn-sm m-2" %>
-        <% else %>
-          <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
-        <% end %>
+      <div class="row my-2">
+        <div class="col-sm">
+          <div class="card flex-row flex-wrap p-3" style="width: 40rem;">
+            <div>
+              <img class="card-img-top" src="https://placeimg.com/640/480/arch" width="100%" height="180" alt="Card image cap">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><%= reservation.place.name %></h5>
+              <p class="card-text"><%= reservation.initial_date %></p>
+              <p class="card-text"><%= reservation.final_date %></p>
+              <p class="card-text">R$<%= reservation.price %></p>
+              <% if reservation.final_date.past? %>
+                <%= link_to "Review", new_place_review_path(reservation.place), class: "btn btn-dark btn-sm m-2" %>
+              <% else %>
+                <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

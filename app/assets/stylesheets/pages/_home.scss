@@ -12,3 +12,14 @@
   text-shadow: 2px 2px 5px #444444;
   color: white;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto 40px
+}
+
+.card-slot {
+  grid-column: span 4;
+  justify-self: center;
+}

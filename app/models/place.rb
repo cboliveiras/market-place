@@ -3,6 +3,6 @@ class Place < ApplicationRecord
 
   has_many :reservations
   has_many :reviews
-
+  
   has_one_attached :image
 end

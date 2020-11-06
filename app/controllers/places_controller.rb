@@ -22,6 +22,7 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.user = current_user
     if @place.save
+      Cloudinary::Uploader.upload(place_params[:image])
       redirect_to my_places_path, notice: "Place created!"
     else
       render :new
@@ -34,10 +35,10 @@ class PlacesController < ApplicationController
 
   def edit
     @place = Place.find(params[:id])
-    return unless current_user == @place.user
-
-    flash[:notice] = "Access denied"
-    redirect_to :root
+    unless current_user.id == @place.user_id
+      flash[:notice] = "Access denied"
+      redirect_to :root
+    end
   end
 
   def update
@@ -57,7 +58,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :location, :location_type, :price_per_day)
+    params.require(:place).permit(:name, :location, :location_type, :price_per_day, :image)
   end
 
   def set_place

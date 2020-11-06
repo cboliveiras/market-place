@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_005528) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
+    t.integer "place_avg_review", default: 0
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 

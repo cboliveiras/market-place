@@ -62,7 +62,9 @@ class PlacesController < ApplicationController
     place.reviews.each do |review|
       sum += review.place_rating
     end
-    avg = sum / n
+    unless n == 0
+      avg = sum / n    
+    end
     place.place_avg_review = avg
     place.save
   end

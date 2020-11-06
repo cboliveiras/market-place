@@ -38,10 +38,13 @@
         <% end %>
         <div class="card-content">
           <h5 class="card-title"><%= link_to place.name, place %></h5>
-          <p class="card-text">R$<%= place.price_per_day %></p>
-          <p class="card-review"><%= '⭐' * (place.place_avg_review) %>
-            (<%=  place.reviews.count %> votes)</i>
-          </p>
+          <p class="card-text">R$<%= place.location_type %></p>
+          <div class="price-review">
+            <p class="card-price">R$<%= place.price_per_day %></p>
+            <p class="card-review"><%= '⭐' * (place.place_avg_review) %>
+              (<%=  place.reviews.count %> reviews)</i>
+            </p>
+          </div>
         </div>
       </div>
     <% end %>

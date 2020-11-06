@@ -13,6 +13,7 @@
           <h4 class="card-title"><strong><%= @place.name %></strong></h4>
           <p class="card-text">Description</p>
           <p class="card-text"><h6 class="text-muted">R$<strong><%= @place.price_per_day %></strong>/night</h6></p>
+          <h2 class="card-text"><%= @place.place_avg_review %></h2>
         </div>
       </div>
     </div>
@@ -28,6 +29,7 @@
     <h1>Sign in to book this place</h1>
     <%= link_to "Sign In", new_user_session_path %>
   <% end %>
+
 
   <div class="container my-5 d-flex justify-content-around">
     <div class="row">

@@ -9,7 +9,7 @@
         <% end %>
       </div>
       <div class="col">
-        <div class="card-body d-flex flex-column justify-content-between">
+        <div class="card-content d-flex flex-column justify-content-between">
           <h4 class="card-title page-title"><strong><%= @place.name %></strong></h4>
           <p class="card-text">Description</p>
           <p class="card-text"><h6 class="text-muted">R$<strong><%= @place.price_per_day %></strong>/night</h6></p>
@@ -31,11 +31,11 @@
   <% end %>
 
 
-  <div class="container wrapper my-5 d-flex justify-content-around">
+  <div class="container wrapper d-flex justify-content-around">
     <div class="row">
       <% @place.reviews.each do |review| %>
       <div class="col-6">
-        <div class="card card-body my-3" style="width: 27rem; border-radius: 5px;">
+        <div class="card card-content" style="width: 27rem; border-radius: 5px;">
           <div class="d-flex">
 
             <img class="avatar avatar-32 img-circle align-self-center" src="https://avatars3.githubusercontent.com/u/10161253?s=460&u=1932640443a373f365f930059cba66be868fb534&v=4">

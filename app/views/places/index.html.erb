@@ -2,6 +2,7 @@
 <div class="container d-flex flex-column align-items-center my-3">
   <h1>Places</h1>
 
+<div class="cards">
   <% @places.each do |place| %>
       <div class="row my-2">
         <div class="col-sm">
@@ -12,7 +13,7 @@
             <div class="card-body">
               <h5 class="card-title"><%= link_to place.name, place %></h5>
               <p class="card-text">R$<%= place.price_per_day %></p>
-              <p class="card-text">R$<%= place.place_avg_review %></p>
+              <p class="card-text"><%= place.place_avg_review %></p>
             </div>
           </div>
         </div>
@@ -25,3 +26,4 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
+

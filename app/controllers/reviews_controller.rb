@@ -26,17 +26,4 @@ class ReviewsController < ApplicationController
   def set_place
     @place = Place.find(params[:place_id])
   end
-
-  def review_avg(place)
-    n = place.reviews.count
-    sum = 0
-    avg = 0
-    place.reviews.each do |review|
-      sum += review.place_rating
-    end
-    avg = sum / n
-    place.place_avg_review = avg
-    place.save
-    # place.update(place_avg_review: avg)
-  end
 end

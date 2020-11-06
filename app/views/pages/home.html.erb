@@ -1,8 +1,9 @@
-<div class="banner">
-  <div class="main-box">
+<div class="banner d-flex flex-column align-items-center">
+  <div class="main-box d-flex flex-column align-items-center">
     <div class="d-flex">
       <h1>Book your next adventure!</h1>
     </div>
+
 
     <div class="d-flex search-box justify-content-center">
       <div class="">
@@ -11,22 +12,48 @@
       <div class="search-icon">
         <i class="fas fa-search"></i>
       </div>
+    </div> -->
+
+    <div class="d-flex search-box justify-content-center">
+      <div class="search-text">
+        <%= form_tag places_path, method: :get do %>
+          <%= text_field_tag :search_query,
+            params[:search_query],
+            class: "form-control",
+            placeholder: "Find your next destination"
+          %>
+      </div>
+      <div class="d-flex search-icon">
+        <%= button_tag(type: "submit", class: "btn btn-default") do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      <% end %>
+      </div>
     </div>
+
   </div>
 </div>
 
-  <div class="py-5">
-    <div class="row d-flex justify-content-center">
-      <% @places.each do |place| %>
-        <div class="col-auto mb-3">
-          <div class="card card-body" style="width: 20rem; height: 12rem;">
-            <img class="card-img-top" src="..." alt="Card image">
-            <div class="card-block">
-              <h4 class="card-title"><%= link_to place.name, place %></h4>
-              <p class="card-text p-y-1">R$<%= place.price_per_day %></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
+<div class="container d-flex flex-column">
+  <div class="d-flex m-5 justify-content-center">
+    <h1>Our Places</h1>
   </div>
+
+  <div class="wrapper">
+    <% @places.each do |place| %>
+      <div class="card card-slot my-3 justify-between" style="width: 18rem;">
+        <% if place.image.attached? %>
+          <img class="card-img-top" src="<%= cl_image_path place.image.key %>" width="100%" height="180" alt="Default Image">
+        <% else %>
+          <img class="card-img-top" src="https://res.cloudinary.com/safely/image/upload/v1604452342/tvt5xuita7wrx9ypidsa.png" width="100%" height="180" alt="Default Image">
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to place.name, place %></h5>
+          <p class="card-text">R$<%= place.price_per_day %></p>
+          <p class="card-review"><%= '⭐' * (place.place_avg_review) %>
+          (<%=  place.reviews.count %> votes)</i></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

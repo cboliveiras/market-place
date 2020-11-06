@@ -5,37 +5,32 @@
   justify-content: space-between !important;
   border-radius: 40px !important;
   padding: 5px 15px;
-  // display: flex;
+  display: inline-block;
+}
+
+.form-control {
+  border: none;
 }
 
 .search-text {
-  border-style: none;
+  width: 90%;
+  border: none;
   background-color: transparent;
   float: left !important;
-  // flex-grow: 1 !important;
-  // display: block !important;
-  vertical-align: center !important;
-}
-
-input.search-text {
-  // text-decoration: none;
-  // background-color: white;
-}
-
-input.search-text a:focus {
-  // text-decoration: none;
-  // background-color: white;
+  vertical-align: middle;
 }
 
 .search-text:focus {
   outline: 0px;
-  // list-style : none;
-  // text-decoration : none;
 }
-
 
 .search-icon {
   float: right !important;
-  display: block !important;
-  vertical-align: center !important;
+  align-self: center;
+  width: 10%;
+  padding-right: 30px;
+}
+
+.btn-default {
+  vertical-align: middle;
 }

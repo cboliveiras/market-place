@@ -19,7 +19,7 @@
           <h5 class="card-title"><%= place.name %></h5>
           <p class="card-text"><%= place.location %></p>
           <p class="card-text"><%= place.location_type %></p>
-          <p class="card-text">R$<%= place.price_per_day %></p>
+          <p class="card-text">R$<%= place.price_per_day %>/night</p>
           <%= link_to "Edit", edit_place_path(place), class: "btn btn-dark btn-sm m-2" %>
           <%= link_to "Delete", place_path(place), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
         </div>

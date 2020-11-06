@@ -9,15 +9,20 @@
 
   <div class="wrapper">
     <% @places.each do |place| %>
-      <div>
-        <%= place.id %>
-        <%= place.name %>
-        <%= place.location %>
-        <%= place.location_type %>
-        <%= place.price_per_day %>
-        <%= link_to "Edit", edit_place_path(place), class: "btn btn-dark btn-sm m-2" %>
-        <%= link_to "Delete", place_path(place), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
-      </div>
+      <div class="row my-2">
+          <div class="col-sm">
+            <div class="card flex-row flex-wrap p-3" style="width: 40rem;">
+              <div>
+                <img class="card-img-top" src="https://placeimg.com/640/480/arch" width="100%" height="180" alt="Card image cap">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><%= place.name %></h5>
+                <p class="card-text"><%= place.location %></p>
+                <p class="card-text"><%= place.location_type %></p>
+                <p class="card-text">R$<%= place.price_per_day %></p>
+                <%= link_to "Edit", edit_place_path(place), class: "btn btn-dark btn-sm m-2" %>
+                <%= link_to "Delete", place_path(place), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
+              </div>
     <% end %>
   </div>
 

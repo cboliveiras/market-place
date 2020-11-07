@@ -28,7 +28,8 @@ class ReviewsController < ApplicationController
   end
 
   def review_avg(place)
-    n = place.reviews.count
+    n = 1
+    n = place.reviews.count unless n == 0
     sum = 0
     avg = 0
     place.reviews.each do |review|

@@ -25,7 +25,7 @@ def airbnb_name_generator(address, location)
 end
 
 users.each do |user|
-    10.times do
+    4.times do
         location = $location_types.sample
         address = Faker::Address.street_name
         place = Place.new(
@@ -45,7 +45,7 @@ users.each do |user|
     end
 end
 
-places.each do |place|
+Place.all.each do |place|
   4.times do
     review = Review.new(
         user_rating: rand(1..5),

@@ -1,7 +1,6 @@
 .navbar-home{
   justify-content: space-between;
-  background-color: lightgray;
-  background-color: transparent;
+  background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.6040616075531775) 100%);
   transition: 0.5s background-color ease;
   position: fixed;
   right: 0;
@@ -9,11 +8,19 @@
   z-index: 2; // gets in front of everything
 }
 
+.navbar-home-scrolled {
+  background-color: #1A281F;
+}
+
 .nav-font {
   color: white !important;
   text-shadow: 1px 1px 2px #444444;
   font-size: 20px;
   // letter-spacing: 2px
+}
+
+.nav-link {
+  color: white !important;
 }
 
 .banner {

@@ -28,11 +28,16 @@ class PlacesController < ApplicationController
 
   def show
     @reservation = Reservation.new
-    @place.place_avg_review
+    
+    @markers = [
+      {
+        lat: @place.latitude,
+        lng: @place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { place: @place })
+      }]
   end
 
   def edit
-    @place = Place.find(params[:id])
     unless current_user.id == @place.user_id
       flash[:notice] = "Access denied"
       redirect_to :root

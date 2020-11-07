@@ -1,17 +1,21 @@
-<div class="container">
+<div class="container justify-content-center">
   <div class="page-title">
     <h1>Update your place</h1>
   </div>
 
-  <div class="single-card">
-    <%= simple_form_for @place do |f| %>
-        <%= f.input :name %>
-        <%= f.input :location %>
-        <%= f.input :location_type %>
-        <%= f.input :price_per_day %>
-        <%= f.input :image, as: :file %>
-        <%= f.submit class: "btn btn-dark btn-sm m-2"%>
-    <% end %>
-        <%= link_to 'My Places', :my_places, class: "btn btn-dark btn-sm m-2"%>
+  <div class="d-flex justify-content-center">
+    <div class="single-slim-card d-flex justify-content-center">
+      <div class="single-slim-inside">
+        <%= simple_form_for @place do |f| %>
+          <%= f.input :name %>
+          <%= f.input :location %>
+          <%= f.input :location_type %>
+          <%= f.input :price_per_day %>
+          <%= f.input :image, as: :file %>
+          <%= f.submit class: "btn btn-dark btn-sm btn-block my-1"%>
+        <% end %>
+        <%= link_to 'My Places', :my_places, class: "btn btn-dark btn-sm btn-block mt-3"%>
+      </div>
+    </div>
   </div>
 </div>

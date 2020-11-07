@@ -1,7 +1,7 @@
 users = User.all
 places = Place.all
 
-7.times do
+3.times do
   user = User.new(
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
@@ -24,7 +24,7 @@ def airbnb_name_generator(address, location)
   return "#{location} #{$adjetivos.sample} na #{address}"
 end
 
-users.each do |user|
+User.all.each do |user|
     4.times do
         location = $location_types.sample
         address = Faker::Address.street_name
@@ -53,7 +53,7 @@ Place.all.each do |place|
         comments: Faker::Lorem.sentence(word_count: rand(5..15)),
       )
     review.place = place
-    review.user = users.sample
+    review.user = User.all.sample
     review.save!
     puts("Creating review for #{place.name} by #{review.user.first_name}")
   end

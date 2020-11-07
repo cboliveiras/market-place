@@ -95,11 +95,39 @@ p {
 }
 
 .single-slim-card {
-  width: 50%;
+  width: 60%;
   background-color: white;
   padding: 20px;
+  margin-bottom: 50px;
 }
 
 .single-slim-inside {
   width: 100%;
+}
+
+.date-container {
+  width: 100%;
+}
+
+.map-container {
+  width: 60%;
+  background-color: white;
+}
+
+.review-container {
+  margin: 20px 0px;
+  height: 100%
+}
+
+.card-review {
+  // background-size: cover;
+  // background-position: center;
+  // height: 180px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  font: black;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: white;
 }

@@ -52,8 +52,8 @@
           <div class="card-body">
             <div>
               <p class="card-text"><%= place.location_type %></p>
-              <p class="card-review"><%= '⭐' * (place.place_avg_review) %>
-                (<%=  place.reviews.count %> reviews)</i>
+              <p class="card-review"><%= '⭐  '%> <%=  place.place_avg_review %>
+                (<%=  place.reviews.count %>)
               </p>
             </div>
             <p class="card-price">R$<%= place.price_per_day %>/night</p>

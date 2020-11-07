@@ -28,7 +28,7 @@ class PlacesController < ApplicationController
 
   def show
     @reservation = Reservation.new
-    review_avg(@place)
+    @place.place_avg_review
   end
 
   def edit
@@ -54,18 +54,6 @@ class PlacesController < ApplicationController
   end
 
   private
-
-  def review_avg(place)
-    n = place.reviews.count
-    sum = 0
-    avg = 0
-    place.reviews.each do |review|
-      sum += review.place_rating
-    end
-    avg = sum / n
-    place.place_avg_review = avg
-    place.save
-  end
 
   def place_params
     params.require(:place).permit(:name, :location, :location_type, :price_per_day, :image)

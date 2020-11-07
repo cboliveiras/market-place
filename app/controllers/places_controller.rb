@@ -29,6 +29,16 @@ class PlacesController < ApplicationController
   def show
     @reservation = Reservation.new
     review_avg(@place)
+
+    @places = Place.geocoded
+
+    @markers = @places.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+      }
+    end
   end
 
   def edit

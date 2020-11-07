@@ -112,11 +112,13 @@ p {
 .map-container {
   width: 60%;
   background-color: white;
+  height: 100%
 }
 
 .review-container {
   margin: 20px 0px;
-  height: 100%
+  padding: 0px;
+  width: 100%;
 }
 
 .card-review {
@@ -130,4 +132,6 @@ p {
   font-size: 15px;
   border-radius: 5px;
   background-color: white;
+  margin: 0px;
+  width: 95%;
 }

@@ -1,4 +1,9 @@
 <div class="container">
+
+  <div class="page-title">
+    <h1><%= @place.name %></h1>
+  </div>
+
   <div class="show-card single-slim-card">
     <div class="single-slim-inside row no-gutters">
 
@@ -44,15 +49,13 @@
 
 
 
-  <div class="container wrapper d-flex justify-content-around">
-    <div class="row">
+  <div class="container wrapper d-flex justify-content-between">
+    <div class="row d-flex justify-content-between">
       <% @place.reviews.each do |review| %>
       <div class="col-6 review-container">
-        <div class="card-review card-content" style="width: 27rem; border-radius: 5px;">
+        <div class="card-review card-content">
           <div class="d-flex">
-
             <img class="avatar avatar-32 img-circle align-self-center" src="https://avatars3.githubusercontent.com/u/10161253?s=460&u=1932640443a373f365f930059cba66be868fb534&v=4">
-
             <div class="d-flex flex-column px-3">
               <div>
                 <%= review.user.first_name %>

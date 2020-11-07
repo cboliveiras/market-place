@@ -12,7 +12,7 @@ places = Place.all
   avatar_path = Rails.root.join('app','assets','images','profile_pics')
   filename = Dir.children(avatar_path).sample
   avatar = avatar_path + filename
-  user.avatar.attach(io: File.open(avatar), filename: filename)
+  user.photo.attach(io: File.open(avatar), filename: filename)
   user.save
   puts "User '#{user.first_name} #{user.last_name}' Created"
 end

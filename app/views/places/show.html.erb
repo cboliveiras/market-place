@@ -11,7 +11,7 @@
 
         <div class="col-auto">
           <% if @place.image.attached? %>
-            <img class="card-img-top" src="<%= cl_image_path @place.image.key %>" width="100%" height="180" alt="Default Image">
+            <img class="card-img-top" src="<%= cl_image_path @place.image.key %>" width="100%" height="250" alt="Default Image" >
           <% else %>
             <img class="card-img-top" src="https://res.cloudinary.com/safely/image/upload/v1604452342/tvt5xuita7wrx9ypidsa.png" width="100%" height="180" alt="Location Photo">
           <% end %>
@@ -46,7 +46,8 @@
     
     </div>
    
-    <div class="map-container" id="map"      
+   
+    <div class="map-container ml-3" id="map"      
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>

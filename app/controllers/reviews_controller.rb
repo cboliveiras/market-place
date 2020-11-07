@@ -28,15 +28,14 @@ class ReviewsController < ApplicationController
   end
 
   def review_avg(place)
-    n = 1
-    n = place.reviews.count unless n == 0
+    n = place.reviews.nil? ? 0 : place.reviews.count
     sum = 0
     avg = 0
     place.reviews.each do |review|
       sum += review.place_rating
     end
-    avg = sum / n
-    place.place_avg_review = avg
+    avg = sum / n.to_f
+    place.place_avg_review = avg.round(2)
     place.save
   end
 end

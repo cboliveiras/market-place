@@ -6,11 +6,17 @@
 }
 
 .main-box h1 {
+  padding-top: 50px;
   margin-bottom: 30px;
   font-weight: 900;
   text-shadow: 2px 2px 5px #444444;
   color: white;
   text-align: center;
+}
+
+.explore-container {
+  padding: 0px;
+  padding-top: 360px;
 }
 
 .wrapper {
@@ -28,4 +34,23 @@
 .page-title {
   padding-top: 75px;
   padding-bottom: 25px;
+}
+
+
+
+h4 {
+  align-self: center;
+  margin: 0px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  text-shadow: 2px 2px 10px #444444;
+}
+
+.fa-angle-down {
+  align-self: center;
+  margin: 0px 10px;
+  color: white;
+  text-shadow: 2px 2px 10px #444444;
 }

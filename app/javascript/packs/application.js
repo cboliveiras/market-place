@@ -25,7 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import "mapbox-gl/dist/mapbox-gl.css";
-
+import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -37,4 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   initAutocomplete();
+  initUpdateNavbarOnScroll();
 });

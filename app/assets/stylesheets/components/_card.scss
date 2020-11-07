@@ -11,11 +11,15 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.single-card {
-  display: grid;
-  grid-template-columns: 3fr 9fr;
-  grid-gap: 16px;
+.card-container {
+  background-color: white;
 }
+
+// .single-card {
+//   display: grid;
+//   grid-template-columns: 3fr 9fr;
+//   grid-gap: 16px;
+// }
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
@@ -71,7 +75,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  position: relative;
 }
 
 .card-text {

@@ -15,13 +15,13 @@
           <h5 class="card-title"><%= reservation.place.name %></h5>
           <p class="card-text"><%= reservation.place.location %></p>
           <p class="card-text"><%= reservation.place.location_type %></p>
-          <p class="card-text"><%= reservation.initial_date %></p>
-          <p class="card-text"><%= reservation.final_date %></p>
-          <p class="card-text">R$<%= reservation.price %></p>
+          <p class="card-text">Check-in: <%= reservation.initial_date %></p>
+          <p class="card-text">Check-out: <%= reservation.final_date %></p>
+          <p class="card-text">R$ <%= reservation.price %></p>
           <% if reservation.final_date.past? %>
-            <%= link_to "Review", new_place_review_path(reservation.place), class: "btn btn-dark btn-sm m-2" %>
+            <%= link_to "Review", new_place_review_path(reservation.place), class: "btn btn-dark btn-sm my-1" %>
           <% else %>
-            <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm m-2" %>
+            <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm my-1" %>
           <% end %>
         </div>
       </div>

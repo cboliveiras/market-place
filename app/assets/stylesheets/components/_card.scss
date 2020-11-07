@@ -99,7 +99,7 @@ p {
   background-color: white;
   padding: 20px;
   margin-bottom: 50px;
-  margin-left: 230px;
+  //margin-left: 230px;
 }
 
 .single-slim-inside {
@@ -111,9 +111,14 @@ p {
 }
 
 .map-container {
-  width: 60%;
+  width: 40%;
+  height: 400px;
   background-color: white;
-  height: 100%
+  padding: 20px;
+}
+
+.map-card {
+  width: 60%;
 }
 
 .review-container {

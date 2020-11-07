@@ -3,6 +3,6 @@ class PagesController < ApplicationController
   layout "home"
 
   def home
-    @places = Place.all.sample(21)
+    @places = Place.all.sample(9)
   end
 end

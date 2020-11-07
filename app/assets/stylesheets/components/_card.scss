@@ -1,23 +1,25 @@
-.card-category {
-  background-size: cover;
-  background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+.card {
+  // background-size: cover;
+  // background-position: center;
+  // height: 180px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  font: black;
+  font-size: 15px;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+.card-container {
+  background-color: white;
 }
+
+// .single-card {
+//   display: grid;
+//   grid-template-columns: 3fr 9fr;
+//   grid-gap: 16px;
+// }
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
@@ -54,8 +56,82 @@
   }
 }
 
-.card-content {
+.card-title a {
+  text-decoration: none;
+  color: inherit;
+}
 
+.card-content {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.card-body {
+  // right: 0;
+  // left: 0;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.card-text {
+  padding-bottom: 10px;
+}
+
+.card-price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+p {
+  margin-bottom: 0px;
+}
+
+.single-slim-card {
+  width: 60%;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+.single-slim-inside {
+  width: 100%;
+}
+
+.date-container {
+  width: 100%;
+}
+
+.map-container {
+  width: 60%;
+  background-color: white;
+  height: 100%
+}
+
+.review-container {
+  margin: 20px 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.card-review {
+  // background-size: cover;
+  // background-position: center;
+  // height: 180px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  font: black;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: white;
+  margin: 0px;
+  width: 95%;
 }

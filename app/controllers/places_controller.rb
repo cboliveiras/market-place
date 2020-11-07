@@ -28,21 +28,16 @@ class PlacesController < ApplicationController
 
   def show
     @reservation = Reservation.new
-    review_avg(@place)
-
-    @places = Place.geocoded
-
-    @markers = @places.map do |place|
+    
+    @markers = [
       {
-        lat: place.latitude,
-        lng: place.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { place: place })
-      }
-    end
+        lat: @place.latitude,
+        lng: @place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { place: @place })
+      }]
   end
 
   def edit
-    @place = Place.find(params[:id])
     unless current_user.id == @place.user_id
       flash[:notice] = "Access denied"
       redirect_to :root
@@ -64,20 +59,6 @@ class PlacesController < ApplicationController
   end
 
   private
-
-  def review_avg(place)
-    n = place.reviews.count
-    sum = 0
-    avg = 0
-    place.reviews.each do |review|
-      sum += review.place_rating
-    end
-    unless n == 0
-      avg = sum / n    
-    end
-    place.place_avg_review = avg
-    place.save
-  end
 
   def place_params
     params.require(:place).permit(:name, :location, :location_type, :price_per_day, :image)

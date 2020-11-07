@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
   end
 
   def my_reservations
-    @user = current_user
+    @reservations = Reservation.where(user: current_user)
   end
 
   def destroy
